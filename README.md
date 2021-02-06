@@ -1,1 +1,1 @@
-# Gradient-Approx-to-imrove-OCR
+# Black-box Approximation to Improve OpticalCharacter Recognition Performance
