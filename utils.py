@@ -2,7 +2,6 @@ import os
 
 import torch
 import numpy as np
-import seaborn as sn
 import torchvision.transforms as transforms
 import matplotlib.pyplot as plt
 from unidecode import unidecode
@@ -36,30 +35,12 @@ def save_img(images, name, dir, nrow=8):
     img.save(os.path.join(dir, name + '.png'), 'PNG')
 
 
-def save_heat_map(grad, name, dir):
-    grad = grad.detach().cpu()
-    grad.clamp_(-0.0001, 0.0001)
-    plt.figure()
-    sn.heatmap(grad, center=0, cmap="RdBu")
-    plt.savefig(os.path.join(dir, name + '.png'), bbox_inches='tight')
-    plt.close()
-
-
 def show_img(images, title="Figure", nrow=8):
     img = utils.make_grid(images, nrow=nrow)
     npimg = img.numpy()
     plt.figure(num=title)
     plt.imshow(np.transpose(npimg, (1, 2, 0)))
     plt.show()
-
-
-def show_heat_map(grad):
-    grad = grad.detach().cpu()
-    grad.clamp_(-0.0001, 0.0001)
-    plt.figure()
-    sn.heatmap(grad, center=0, cmap="RdBu")
-    plt.show()
-    plt.close()
 
 
 def get_ununicode(text):
