@@ -1,12 +1,12 @@
 import os
-
 import torch
+import Levenshtein
 import numpy as np
+
 import torchvision.transforms as transforms
 import matplotlib.pyplot as plt
 from unidecode import unidecode
 import torchvision.utils as utils
-import Levenshtein
 
 import ocr_helper.tess_helper as tess_helper
 import ocr_helper.eocr_helper as eocr_helper
@@ -84,7 +84,6 @@ def pred_to_string(scores, labels, index_to_char, show_text=False):
 def compare_labels(preds, labels):
     correct_count = 0
     total_cer = 0
-    # lens = len(preds) if len(preds) <= len(labels) else len(labels)
     if not isinstance(labels, (list, tuple)):
         labels = [labels]
         print(labels)
@@ -156,39 +155,6 @@ def get_files(in_dir, filter):
     return processed_list
 
 
-def get_lcs(text, gt_text):
-    text = text.replace('\r', ' ').replace('\n', ' ')
-    gt_text = gt_text.replace('\r', ' ').replace('\n', ' ')
-    m = len(text)
-    n = len(gt_text)
-
-    L = [[None]*(n+1) for i in range(m+1)]
-
-    for i in range(m+1):
-        for j in range(n+1):
-            if i == 0 or j == 0:
-                L[i][j] = 0
-            elif text[i-1] == gt_text[j-1]:
-                L[i][j] = L[i-1][j-1]+1
-            else:
-                L[i][j] = max(L[i-1][j], L[i][j-1])
-
-    return L[m][n], len(gt_text)
-
-
-def get_max_bpm(text, gt_text):
-    text_split = text.split()
-    gt_split = gt_text.split()
-    gt_len = len(gt_split)
-    max_bpm = 0
-    for word in text_split:
-        for i, gt_word in enumerate(gt_split):
-            if word == gt_word:
-                max_bpm += 1
-                del gt_split[i]
-    return max_bpm, gt_len
-
-
 def get_noisy_image(image, std=0.05, mean=0):
     noise = torch.normal(mean, std, image.shape)
     out_img = image + noise
@@ -204,14 +170,3 @@ def get_ocr_helper(ocr, is_eval=False):
         return eocr_helper.EocrHelper(is_eval=is_eval)
     else:
         return None
-
-
-def compare_txt(text, labels):
-    max_bpm = 0
-    labels = labels.copy()
-    for word in text:
-        for i, gt_word in enumerate(labels):
-            if word == gt_word:
-                max_bpm += 1
-                del labels[i]
-    return max_bpm
