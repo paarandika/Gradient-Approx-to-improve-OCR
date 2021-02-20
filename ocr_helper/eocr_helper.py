@@ -13,7 +13,8 @@ class EocrHelper():
         self.empty_char = empty_char
         self.is_eval = is_eval
         # this works only becuase of a hack done in library. If fails remove gpu='cuda:1'
-        self.reader = easyocr.Reader(['en'], gpu='cuda:1')
+        # self.reader = easyocr.Reader(['en'], gpu='cuda:1')
+        self.reader = easyocr.Reader(['en'], gpu=True)
 
     def get_labels(self, imgs):
         labels = []
