@@ -13,4 +13,5 @@ if not os.path.exists(properties.prep_tensor_board):
     os.mkdir(properties.prep_tensor_board)
 if not os.path.exists(properties.img_out_path):
     os.mkdir(properties.img_out_path)
-
+if not os.path.exists("./data"):
+    os.mkdir("./data")
