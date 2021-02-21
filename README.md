@@ -19,4 +19,4 @@ This code repository contains the scripts needs to recreate the results mentione
 ```bash
 conda env create -f environment.yml
 ```
-2.  Run `init_workspace.py` to create necessary directories. Download the three dataset zip files from "http://bit.ly/ocr-grad-approx" and put them in a directory named `data` and unzip them.
+2.  Run `init_workspace.py` to create necessary directories. Download the three dataset zip files from "http://bit.ly/approx-ocr-grad" and put them in a directory named `data` and unzip them.
