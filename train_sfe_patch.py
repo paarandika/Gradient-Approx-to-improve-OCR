@@ -173,7 +173,7 @@ class TrainSFEPrep:
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(
-        description='Trains the CRNN model')
+        description='Trains the SFE Prep with Patch dataset')
     parser.add_argument('--lr', type=float, default=0.00005,
                         help='prep model learning rate, not used by adadealta')
     parser.add_argument('--epoch', type=int,

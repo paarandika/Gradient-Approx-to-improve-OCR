@@ -178,8 +178,6 @@ if __name__ == "__main__":
     parser.add_argument("--prep_model_name",
                         default='prep_tesseract_pos', help='Prep model name')
     args = parser.parse_args()
-    args.prep_path = "./trained_models/NN-based-prep/"
-    # args.ocr = "EasyOCR"
     print(args)
     evaluator = EvalPrep(args)
     evaluator.eval()

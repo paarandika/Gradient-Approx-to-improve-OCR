@@ -180,7 +180,7 @@ class TrainSFEPrep:
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(
-        description='Trains the CRNN model')
+        description='Trains the SFE Prep with VGG dataset')
     parser.add_argument('--batch_size', type=int,
                         default=32, help='input batch size')
     parser.add_argument('--lr', type=float, default=0.00005,
