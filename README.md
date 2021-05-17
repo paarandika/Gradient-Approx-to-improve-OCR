@@ -1,4 +1,4 @@
-# Unknown-box Approximation to Improve OpticalCharacter Recognition Performance
+# Unknown-box Approximation to Improve Optical Character Recognition Performance
 This code repository contains the scripts needs to recreate the results mentioned in the manuscript "Unknown-box Approximation to Improve Optical Character Recognition Performance"
 ## Contents of the repo
 ### Scripts
