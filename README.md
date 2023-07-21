@@ -1,5 +1,5 @@
 # Unknown-box Approximation to Improve Optical Character Recognition Performance
-This code repository contains the scripts needs to recreate the results mentioned in the manuscript "Unknown-box Approximation to Improve Optical Character Recognition Performance"
+This code repository contains the scripts needs to recreate the results mentioned in the manuscript "Unknown-box Approximation to Improve Optical Character Recognition Performance" ([Springer publication of ICDAR 2021](https://link.springer.com/chapter/10.1007/978-3-030-86549-8_31) | [arxiv](https://arxiv.org/abs/2105.07983))
 ## Contents of the repo
 ### Scripts
 * train_crnn.py - Script to train the CRNN model to avoid cold start problem
